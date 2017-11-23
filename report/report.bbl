@@ -1,0 +1,61 @@
+\begin{thebibliography}{1}
+
+\bibitem{leroy2010cold}
+V.~Leroy, B.~B. Cambazoglu, and F.~Bonchi.
+\newblock Cold start link prediction.
+\newblock In {\em Proceedings of the 16th ACM SIGKDD international conference
+  on Knowledge discovery and data mining}, pages 393--402. ACM, 2010.
+
+\bibitem{lichtenwalter2010new}
+R.~N. Lichtenwalter, J.~T. Lussier, and N.~V. Chawla.
+\newblock New perspectives and methods in link prediction.
+\newblock In {\em Proceedings of the 16th ACM SIGKDD international conference
+  on Knowledge discovery and data mining}, pages 243--252. ACM, 2010.
+
+\bibitem{shi2012relevance}
+C.~Shi, X.~Kong, P.~S. Yu, S.~Xie, and B.~Wu.
+\newblock Relevance search in heterogeneous networks.
+\newblock In {\em Proceedings of the 15th International Conference on Extending
+  Database Technology}, pages 180--191. ACM, 2012.
+
+\bibitem{shi2017survey}
+C.~Shi, Y.~Li, J.~Zhang, Y.~Sun, and S.~Y. Philip.
+\newblock A survey of heterogeneous information network analysis.
+\newblock {\em IEEE Transactions on Knowledge and Data Engineering},
+  29(1):17--37, 2017.
+
+\bibitem{sun2013mining}
+Y.~Sun and J.~Han.
+\newblock Mining heterogeneous information networks: a structural analysis
+  approach.
+\newblock {\em ACM SIGKDD Explorations Newsletter}, 14(2):20--28, 2013.
+
+\bibitem{sun2011pathsim}
+Y.~Sun, J.~Han, X.~Yan, P.~S. Yu, and T.~Wu.
+\newblock Pathsim: Meta path-based top-k similarity search in heterogeneous
+  information networks.
+\newblock {\em Proceedings of the VLDB Endowment}, 4(11):992--1003, 2011.
+
+\bibitem{sun2009rankclus}
+Y.~Sun, J.~Han, P.~Zhao, Z.~Yin, H.~Cheng, and T.~Wu.
+\newblock Rankclus: integrating clustering with ranking for heterogeneous
+  information network analysis.
+\newblock In {\em Proceedings of the 12th International Conference on Extending
+  Database Technology: Advances in Database Technology}, pages 565--576. ACM,
+  2009.
+
+\bibitem{sun2013pathselclus}
+Y.~Sun, B.~Norick, J.~Han, X.~Yan, P.~S. Yu, and X.~Yu.
+\newblock Pathselclus: Integrating meta-path selection with user-guided object
+  clustering in heterogeneous information networks.
+\newblock {\em ACM Transactions on Knowledge Discovery from Data (TKDD)},
+  7(3):11, 2013.
+
+\bibitem{wang2016relsim}
+C.~Wang, Y.~Sun, Y.~Song, J.~Han, Y.~Song, L.~Wang, and M.~Zhang.
+\newblock Relsim: relation similarity search in schema-rich heterogeneous
+  information networks.
+\newblock In {\em Proceedings of the 2016 SIAM International Conference on Data
+  Mining}, pages 621--629. SIAM, 2016.
+
+\end{thebibliography}
