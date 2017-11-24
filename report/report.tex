@@ -35,6 +35,10 @@
 
 \documentclass{acm_proc_article-csis8101}
 \usepackage{color}
+
+\newdef{definition}{Definition}
+\newdef{example}{Example}
+
 \begin{document}
 %
 % --- Author Metadata here ---
@@ -125,7 +129,44 @@ The following part is organized as follows. Section 2 introduces the basic conce
 % proceedings paper, rather than with giving rigorous descriptions
 % or explanations of such commands.
 
-% \section{The {\secit Body} of The Paper}
+\section{Basic Concepts and Definitions}
+
+In this section, we introduce some basic concepts about HIN and give some HIN examples. We first define the information network and heterogeneous information network.
+
+An information network represents an abstraction of the real world, focusing on the entities and the relations among these entities.
+
+\begin{definition}
+{\bf Information Network} \cite{sun2013mining,sun2009ranking}. An information network is defined as a directed graph $G=(V,E)$ with an entity type mapping function $\varphi: V \rightarrow \mathcal{A}$ and a relation type mapping function $\psi: E \rightarrow \mathcal{R}$. Each entity $v \in V$ belongs to one particular entity type in the entity type set $\mathcal{A}: \varphi(v) \in \mathcal{A}$, and each relation $e \in E$ belongs to a particular relation type in the relation type set $\mathcal{R}: \psi(e) \in \mathcal{R}$. If two relations belongs to the same relation type, the two links share the same starting entity type as well as the ending entity type.
+\end{definition}
+
+Based on the definition of information network, we derive the definitions of heterogeneous/homogeneous information network.
+
+\begin{definition}
+{\bf Heterogeneous/homogeneous information network}. The information network is called heterogeneous information network if the type of entities $|\mathcal{A}|>1$ or the types of relations $|\mathcal{R}|>1$; otherwise, it is a homogeneous information network.
+\end{definition}
+
+For better understanding the entity types and relation types in a complex heterogeneous information network, the network schema provides a high-level description of a given heterogeneous information network.
+
+\begin{definition}
+{\bf Network schema} \cite{sun2013mining,sun2009ranking}. The network schema, denoted as $T_{G}=(\mathcal{A},\mathcal{R})$, is a meta template for an information network $G=(V,E)$ with the entity type mapping $\varphi: V \rightarrow \mathcal{A}$ and the relation type mappling $\psi: E \rightarrow \mathcal{R}$, which is a directed graph defined over entity types $\mathcal{A}$, with edges as relations from $\mathcal{R}$.
+\end{definition}
+
+The network schema of a HIN specifies type constraints on the sets of entities and relationships among those entities. An information network following a network schema is called a {\bf network instance} of the network schema. For a relation type $R$ connecting entity type $S$ to entity type $T$, i.e., $S\xrightarrow{R} T$, $S$ and $T$ are the {\bf source entity type} and {\bf target entity type} of relation type $R$, which can be denoted as $R.S$ and $R.T$, respectively. The inverse relation $R^{-1}$ holds naturally for $T \xrightarrow{R^{-1}} S$. Generally, $R$ is not equal to $R^{-1}$, unless $R$ is symmetric.
+
+Another important concept, meta-path, is proposed to systematically define relations between entities at the schema level.
+
+\begin{definition}
+{\bf Meta-path} \cite{sun2011pathsim}. A meta-path $\mathcal{P}$ is a path defined on a schema $S=(\mathcal{A}, \mathcal{R})$, and is denoted in the form of $A_{1}\xrightarrow{R_{1}}A_{2}\xrightarrow{R_{2}}\cdots \xrightarrow{R_{l}}A_{l+1}$, which defines a composite relation $R=R_{1}\circ R_{2}\circ \cdots \circ R_{l}$ between entities $A_{1}, A_{2}, \cdots, A_{l+1}$, where $\circ$ denotes the composition operator on relations.
+\end{definition}
+
+For simplicity, we can also use entity types to denote the meta-path if there are no multiple relation types between the same pair of entity types: $\mathcal{P}=(A_{1}A_{2}\cdots A_{l+1})$. We say a concrete path $p=(a_{1}a_{2}\cdots a_{l+1})$ between entities $a_{1}$ and $a_{l+1}$ in network $G$ is a {\bf path instance} of the relevance path $\mathcal{P}$, if $\forall a_{i}, \varphi(a_{i})=A_{i}$ and $\forall e_{i}= \langle a_{i}, a_{i+1} \rangle, \psi(e_{i})=R_{i}$ in $\mathcal{P}$. It can be denoted as $p \in \mathcal{P}$. A meta-path $\mathcal{P}$ is a {\bf symmetric path}, if the relation $R$ defined by it is symmetric (i.e., $\mathcal{P}$ is equal to $\mathcal{P}^{-1}$), such as $APA$. Two meta-paths $\mathcal{P}_{1}=(A_{1}A_{2}\cdots A_{l})$ and $\mathcal{P}_{2}=(B_{1}B_{2}\cdots B_{k})$ are {\bf concatenable} if and only if $A_{l}$ is equal to $B_{1}$, and the concatenated path is writen as $\mathcal{P}=(\mathcal{P}_{1}\mathcal{P}_{2})$, which equals to $(A_{1}A_{2}\cdots A_{l}B_{2}\cdots B_{k})$.
+
+\begin{example}
+{\color{red} Example and figure about HIN, schema, meta-path}
+\end{example}
+
+\section{Similarity Measures}
+
 % Typically, the body of a paper is organized
 % into a hierarchical structure, with numbered or unnumbered
 % headings for sections, subsections, sub-subsections, and even
