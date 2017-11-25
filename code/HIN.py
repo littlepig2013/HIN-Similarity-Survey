@@ -22,24 +22,31 @@ class EntityInfo:
 	# inRelationFlag = False -> add outRelations
 	def addRelation(self, relation, relationIndex, inRelationFlag):
 		tmpEntityType = None
+		tmpEntityId = None
 		tmpRelations = None
 		# Select a relation list and an entity type	
 		if inRelationFlag:
 			if hasattr(relation, 'endEntity') and relation.endEntity == self.entity:
 				tmpEntityType = relation.startEntity.entityType
+				tmpEntityId = relation.startEntity.entityId
 				tmpRelations = self.inRelations
 		else:
 			if hasattr(relation, 'startEntity') and relation.startEntity == self.entity:
 				tmpEntityType = relation.endEntity.entityType
+				tmpEntityId = relation.endEntity.entityId
 				tmpRelations = self.outRelations
 
-		if tmpRelations != None and tmpEntityType != None:
-			# Add the relation in specified list
+		if tmpRelations != None and tmpEntityType != None and tmpEntityId != None:
+			# Add the relation
 			if tmpEntityType in tmpRelations:
-				tmpRelations[tmpEntityType].append(relationIndex)
+				tmpRelationIndexDict = tmpRelations[tmpEntityType]['relIndexDict']
+				if tmpEntityId in tmpRelationIndexDict: 
+					tmpRelationIndexDict[tmpEntityId].append(relationIndex)
+				else:
+					tmpRelationIndexDict[tmpEntityId] = [relationIndex]
+				tmpRelations[tmpEntityType]['relsNum'] += 1
 			else:
-				tmpRelations[tmpEntityType] = [relationIndex]
-
+				tmpRelations[tmpEntityType] = {'relIndexDict':{tmpEntityId:[relationIndex]}, 'relsNum':1}
 
 
 

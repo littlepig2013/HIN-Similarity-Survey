@@ -19,14 +19,17 @@
 			* Type: dict
 			* keys: the start entity type
 			* Values: 
-				* Type: list
-				* Values: the indexes of these correponding relations in HIN['Relations']
+				* relIndexDict:
+					* Type: dict
+					* keys: the start entity id
+					* Values: the indexes of these correponding relations in HIN['Relations']
+				* relsNum:
+					* Type: int
+					* the number of relations under this relation type
 		* outRelations:
 			* Type: dict
 			* keys: the end entity type
-			* Values:
-				* Type: list
-				* Values: the indexes of these correponding relations in HIN['Relations']
+			* Values: (similar to the inRelations values)
 	* Methods:
 		* addRelation(relation, relationIndex, inRelationFlag):
 			* relation: a Relation object
