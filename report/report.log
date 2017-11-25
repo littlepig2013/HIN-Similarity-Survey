@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2017.1.19)  24 NOV 2017 00:10
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2017.1.19)  24 NOV 2017 21:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -183,65 +183,86 @@ File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package color Info: Driver file: xetex.def on input line 144.
 )
+\c@definition=\count108
+\c@example=\count109
+
 (./report.aux)
 \openout1 = `report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 38.
-LaTeX Font Info:    ... okay on input line 38.
-LaTeX Font Info:    Try loading font information for U+msa on input line 68.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 42.
+LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Try loading font information for U+msa on input line 72.
  (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 68.
+LaTeX Font Info:    Try loading font information for U+msb on input line 72.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+lasy on input line 68.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 72.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-Overfull \hbox (3.8212pt too wide) in paragraph at lines 92--93
+Overfull \hbox (3.8212pt too wide) in paragraph at lines 96--97
 \OT1/cmr/m/n/9 Recently, re-searchers use het-ero-ge-neous in-for-ma-tion net-w
 orks
  []
 
 
-Overfull \hbox (7.91406pt too wide) in paragraph at lines 92--93
+Overfull \hbox (7.91406pt too wide) in paragraph at lines 96--97
 \OT1/cmr/m/n/9 ter-act-ing com-po-nents. For in-stance, in bib-li-o-graphic dat
 abase,
  []
 
 
-Overfull \hbox (3.56223pt too wide) in paragraph at lines 92--93
+Overfull \hbox (3.56223pt too wide) in paragraph at lines 96--97
 \OT1/cmr/m/n/9 Com-pared to widely-used ho-mo-ge-neous in-for-ma-tion net-works
 
  []
 
-(./report.bbl [1
+
+Underfull \vbox (badness 3536) has occurred while \output is active []
+
+ [1
 
 
-]) [2
+]
+Overfull \hbox (3.07726pt too wide) in paragraph at lines 145--146
+[]\OT1/cmr/bx/n/9 Heterogeneous/homogeneous in-for-ma-
+ []
+
+
+Overfull \hbox (12.73357pt too wide) in paragraph at lines 151--152
+[]\OT1/cmr/bx/n/9 Network schema \OT1/cmr/m/n/9 [5, 9]. The net-work schema,
+ []
+
+
+Overfull \hbox (2.86183pt too wide) in paragraph at lines 165--166
+[]\OT1/cmr/m/n/9 Example and fig-ure about HIN, schema, meta-
+ []
+
+(./report.bbl [2]) [3
 
 ] (./report.aux) ) 
 Here is how much of TeX's memory you used:
- 1858 strings out of 493591
- 22366 string characters out of 6143546
- 84567 words of memory out of 5000000
- 5257 multiletter control sequences out of 15000+600000
- 18385 words of font info for 50 fonts, out of 8000000 for 9000
+ 1873 strings out of 493591
+ 22529 string characters out of 6143546
+ 88567 words of memory out of 5000000
+ 5271 multiletter control sequences out of 15000+600000
+ 18693 words of font info for 51 fonts, out of 8000000 for 9000
  1347 hyphenation exceptions out of 8191
- 41i,9n,28p,969b,250s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,12n,28p,1048b,250s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on report.pdf (2 pages).
+Output written on report.pdf (3 pages).

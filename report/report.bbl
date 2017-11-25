@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{leroy2010cold}
 V.~Leroy, B.~B. Cambazoglu, and F.~Bonchi.
@@ -50,6 +50,13 @@ Y.~Sun, B.~Norick, J.~Han, X.~Yan, P.~S. Yu, and X.~Yu.
   clustering in heterogeneous information networks.
 \newblock {\em ACM Transactions on Knowledge Discovery from Data (TKDD)},
   7(3):11, 2013.
+
+\bibitem{sun2009ranking}
+Y.~Sun, Y.~Yu, and J.~Han.
+\newblock Ranking-based clustering of heterogeneous information networks with
+  star network schema.
+\newblock In {\em Proceedings of the 15th ACM SIGKDD international conference
+  on Knowledge discovery and data mining}, pages 797--806. ACM, 2009.
 
 \bibitem{wang2016relsim}
 C.~Wang, Y.~Sun, Y.~Song, J.~Han, Y.~Song, L.~Wang, and M.~Zhang.
