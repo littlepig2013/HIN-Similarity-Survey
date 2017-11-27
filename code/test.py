@@ -22,3 +22,7 @@ print(userEntity2)
 metaPath = ['user','movie','user']
 print(getWsRel(HIN, userEntity1, userEntity2, metaPath))
 print(getSignSim(HIN, userEntity1, userEntity2, metaPath))
+print(getPathSim(HIN, userEntity1, userEntity2, metaPath))
+print(getTeteSim(HIN, userEntity1, userEntity2, metaPath))
+print(getDistantSim(HIN, userEntity1, userEntity2, metaPath))
+print(getJoinSim(HIN, userEntity1, userEntity2, metaPath))

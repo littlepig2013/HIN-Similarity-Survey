@@ -300,17 +300,17 @@ def neighbor_distribution(HIN, sEntity, meta_path, flag = 0):
 			else:
 				distri[entity_key] += 1
 			continue
-		for key in cur_entity.outRelations[meta_path[pos + 1]].relIndexDict:
-			for relation in cur_entity.outRelations[meta_path[pos + 1]].relIndexDict[key]:
+		for key in cur_entity.outRelations[meta_path[pos + 1]]['relIndexDict']:
+			for relation in cur_entity.outRelations[meta_path[pos + 1]]['relIndexDict'][key]:
 				entity = HIN['Relations'][relation].endEntity
 				entityInfoIdx = HIN['EntityTypes'][entity.entityType][entity.entityId]
-				entityInfo = Hin['Entities'][entityInfoIdx]
-				q.put(entityInfo, pos + 1, cur_entity)
+				entityInfo = HIN['Entities'][entityInfoIdx]
+				q.put((entityInfo, pos + 1, cur_entity))
 
 	return distri
 
 
-def distant_similarity(HIN, sEntity, tEntity, meta_path):
+def getDistantSim(HIN, sEntity, tEntity, meta_path):
 	'''
 	calculate distant similarity of two entities, sEntity and tEntity
 	:param HIN: the heterogeneous information network
@@ -319,7 +319,8 @@ def distant_similarity(HIN, sEntity, tEntity, meta_path):
 	:param meta_path: meta-path needs to be symmetric
 	:return: distant similarity between eEntity and tEntity using cosine similarity
 	'''
-
+	sEntity = HIN['Entities'][HIN['EntityTypes'][sEntity.entityType][sEntity.entityId]]
+	tEntity = HIN['Entities'][HIN['EntityTypes'][tEntity.entityType][tEntity.entityId]]
 	distri_start = neighbor_distribution(HIN, sEntity, meta_path)
 	distri_end = neighbor_distribution(HIN, tEntity, meta_path)
 	numerator = 0
@@ -336,7 +337,7 @@ def distant_similarity(HIN, sEntity, tEntity, meta_path):
 	denominator2 = math.sqrt(denominator2)
 	return numerator / denominator1 / denominator2
 
-def hete_sim(HIN, sEntity, tEntity, meta_path):
+def getTeteSim(HIN, sEntity, tEntity, meta_path):
 	'''
 	calculate HeteSim of two entities, sEntity and tEntity
 	:param HIN: the heterogeneous information network
@@ -345,14 +346,16 @@ def hete_sim(HIN, sEntity, tEntity, meta_path):
 	:param meta_path: mata-path used in this similarity calculation
 	:return: HeteSim value between eEntity and tEntity based on mata-path
 	'''
+	sEntity = HIN['Entities'][HIN['EntityTypes'][sEntity.entityType][sEntity.entityId]]
+	tEntity = HIN['Entities'][HIN['EntityTypes'][tEntity.entityType][tEntity.entityId]]
 	flag = 0
 	if len(meta_path) % 2 == 0:
 		flag = 1
 
-	mid = len(meta_path) / 2 + 1
+	mid = len(meta_path) // 2 + 1
 
 	distri_start = neighbor_distribution(HIN, sEntity, meta_path[:mid], flag)
-	distri_end = neighbor_distribution(HIN, tEntity, reversed(meta_path)[:mid], -flag)
+	distri_end = neighbor_distribution(HIN, tEntity, list(reversed(meta_path))[:mid], -flag)
 
 	numerator = 0
 	for key in distri_start:
@@ -367,6 +370,52 @@ def hete_sim(HIN, sEntity, tEntity, meta_path):
 	denominator1 = math.sqrt(denominator1)
 	denominator2 = math.sqrt(denominator2)
 	return numerator / denominator1 / denominator2
+
+def getPathSim(HIN, sEntity, tEntity, meta_path):
+	'''
+	calculate PathSim of two entities, sEntity and tEntity
+	:param HIN: the heterogeneous information network
+	:param sEntity: start entity
+	:param tEntity: end entity
+	:param meta_path:  mata-path used in this similarity calculation
+	:return: PathSim value between eEntity and tEntity based on mata-path
+	'''
+	sEntity = HIN['Entities'][HIN['EntityTypes'][sEntity.entityType][sEntity.entityId]]
+	tEntity = HIN['Entities'][HIN['EntityTypes'][tEntity.entityType][tEntity.entityId]]
+	distri_start = neighbor_distribution(HIN, sEntity, meta_path)
+	distri_end = neighbor_distribution(HIN, tEntity, list(reversed(meta_path)))
+	tEntity_key = tEntity.entity.entityId
+	numerator = 2 * distri_start[tEntity_key]
+	denominator1 = 0
+	denominator2 = 0
+	for key in distri_start:
+		denominator1 += distri_start[key]
+	for key in distri_end:
+		denominator2 += distri_end[key]
+	return numerator / (denominator1 + denominator2)
+
+def getJoinSim(HIN, sEntity, tEntity, meta_path):
+	'''
+	calculate JoinSim of two entities, sEntity and tEntity
+	:param HIN: the heterogeneous information network
+	:param sEntity: start entity
+	:param tEntity: end entity
+	:param meta_path:  mata-path used in this similarity calculation
+	:return: JoinSim value between eEntity and tEntity based on mata-path
+	'''
+	sEntity = HIN['Entities'][HIN['EntityTypes'][sEntity.entityType][sEntity.entityId]]
+	tEntity = HIN['Entities'][HIN['EntityTypes'][tEntity.entityType][tEntity.entityId]]
+	distri_start = neighbor_distribution(HIN, sEntity, meta_path)
+	distri_end = neighbor_distribution(HIN, tEntity, list(reversed(meta_path)))
+	tEntity_key = tEntity.entity.entityId
+	numerator = distri_start[tEntity_key]
+	denominator1 = 0
+	denominator2 = 0
+	for key in distri_start:
+		denominator1 += distri_start[key]
+	for key in distri_end:
+		denominator2 += distri_end[key]
+	return numerator / math.sqrt(denominator1 * denominator2)
 
 if __name__ == "__main__":
 	f = open('HIN.pkl','rb')
