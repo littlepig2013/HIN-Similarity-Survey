@@ -3,44 +3,46 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: report.aux
 The style file: abbrv.bst
 Database file #1: report.bib
-You've used 10 entries,
+Warning--empty journal in wang2017distant
+You've used 16 entries,
             2118 wiz_defined-function locations,
-            559 strings with 6031 characters,
-and the built_in function-call counts, 4836 in all, are:
-= -- 490
-> -- 255
-< -- 6
-+ -- 101
-- -- 90
-* -- 356
-:= -- 756
-add.period$ -- 36
-call.type$ -- 10
-change.case$ -- 75
+            590 strings with 7256 characters,
+and the built_in function-call counts, 7497 in all, are:
+= -- 763
+> -- 383
+< -- 10
++ -- 151
+- -- 134
+* -- 531
+:= -- 1163
+add.period$ -- 58
+call.type$ -- 16
+change.case$ -- 115
 chr.to.int$ -- 0
-cite$ -- 10
-duplicate$ -- 182
-empty$ -- 347
-format.name$ -- 90
-if$ -- 1046
+cite$ -- 17
+duplicate$ -- 293
+empty$ -- 548
+format.name$ -- 134
+if$ -- 1636
 int.to.chr$ -- 0
-int.to.str$ -- 10
-missing$ -- 10
-newline$ -- 53
-num.names$ -- 20
-pop$ -- 85
+int.to.str$ -- 16
+missing$ -- 16
+newline$ -- 83
+num.names$ -- 32
+pop$ -- 138
 preamble$ -- 1
-purify$ -- 65
+purify$ -- 99
 quote$ -- 0
-skip$ -- 136
+skip$ -- 221
 stack$ -- 0
-substring$ -- 315
-swap$ -- 70
-text.length$ -- 6
+substring$ -- 478
+swap$ -- 113
+text.length$ -- 10
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 40
-warning$ -- 0
-while$ -- 45
-width$ -- 12
-write$ -- 118
+type$ -- 64
+warning$ -- 1
+while$ -- 69
+width$ -- 18
+write$ -- 186
+(There was 1 warning)

@@ -1,5 +1,24 @@
 \begin{thebibliography}{10}
 
+\bibitem{jamali2013heteromf}
+M.~Jamali and L.~Lakshmanan.
+\newblock Heteromf: recommendation in heterogeneous information networks using
+  context dependent factor models.
+\newblock In {\em Proceedings of the 22nd international conference on World
+  Wide Web}, pages 643--654. ACM, 2013.
+
+\bibitem{jeh2002simrank}
+G.~Jeh and J.~Widom.
+\newblock Simrank: a measure of structural-context similarity.
+\newblock In {\em Proceedings of the eighth ACM SIGKDD international conference
+  on Knowledge discovery and data mining}, pages 538--543. ACM, 2002.
+
+\bibitem{jeh2003scaling}
+G.~Jeh and J.~Widom.
+\newblock Scaling personalized web search.
+\newblock In {\em Proceedings of the 12th international conference on World
+  Wide Web}, pages 271--279. ACM, 2003.
+
 \bibitem{leroy2010cold}
 V.~Leroy, B.~B. Cambazoglu, and F.~Bonchi.
 \newblock Cold start link prediction.
@@ -11,6 +30,21 @@ R.~N. Lichtenwalter, J.~T. Lussier, and N.~V. Chawla.
 \newblock New perspectives and methods in link prediction.
 \newblock In {\em Proceedings of the 16th ACM SIGKDD international conference
   on Knowledge discovery and data mining}, pages 243--252. ACM, 2010.
+
+\bibitem{palma2013measuring}
+G.~Palma, M.-E. Vidal, E.~Haag, L.~Raschid, and A.~Thor.
+\newblock Measuring relatedness between scientific entities in annotation
+  datasets.
+\newblock In {\em Proceedings of the International Conference on
+  Bioinformatics, Computational Biology and Biomedical Informatics}, page 367.
+  ACM, 2013.
+
+\bibitem{shi2014hetesim}
+C.~Shi, X.~Kong, Y.~Huang, S.~Y. Philip, and B.~Wu.
+\newblock Hetesim: A general framework for relevance measure in heterogeneous
+  networks.
+\newblock {\em IEEE Transactions on Knowledge and Data Engineering},
+  26(10):2479--2492, 2014.
 
 \bibitem{shi2012relevance}
 C.~Shi, X.~Kong, P.~S. Yu, S.~Xie, and B.~Wu.
@@ -57,6 +91,12 @@ Y.~Sun, Y.~Yu, and J.~Han.
   star network schema.
 \newblock In {\em Proceedings of the 15th ACM SIGKDD international conference
   on Knowledge discovery and data mining}, pages 797--806. ACM, 2009.
+
+\bibitem{wang2017distant}
+C.~Wang, Y.~Song, H.~Li, Y.~Sun, M.~Zhang, and J.~Han.
+\newblock Distant meta-path similarities for text-based heterogeneous
+  information networks.
+\newblock 2017.
 
 \bibitem{wang2016relsim}
 C.~Wang, Y.~Sun, Y.~Song, J.~Han, Y.~Song, L.~Wang, and M.~Zhang.
