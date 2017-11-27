@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2017.1.19)  24 NOV 2017 21:54
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2017.1.19)  27 NOV 2017 19:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -244,25 +244,47 @@ Overfull \hbox (3.07726pt too wide) in paragraph at lines 145--146
  []
 
 
-Overfull \hbox (12.73357pt too wide) in paragraph at lines 151--152
-[]\OT1/cmr/bx/n/9 Network schema \OT1/cmr/m/n/9 [5, 9]. The net-work schema,
- []
-
-
-Overfull \hbox (2.86183pt too wide) in paragraph at lines 165--166
+Overfull \hbox (2.86183pt too wide) in paragraph at lines 171--172
 []\OT1/cmr/m/n/9 Example and fig-ure about HIN, schema, meta-
  []
 
-(./report.bbl [2]) [3
+[2]
+Overfull \hbox (17.34608pt too wide) in paragraph at lines 198--199
+\OT1/cmr/m/n/9 de-cided by the prox-im-ity of $\OMS/cmsy/m/n/9 f\OML/cmm/m/it/9
+ M[]\OT1/cmr/m/n/9 (\OML/cmm/m/it/9 u; w\OT1/cmr/m/n/9 )\OMS/cmsy/m/n/9 g[]$ \O
+T1/cmr/m/n/9 and $\OMS/cmsy/m/n/9 f\OML/cmm/m/it/9 M[]\OT1/cmr/m/n/9 (\OML/cmm/
+m/it/9 v; w\OT1/cmr/m/n/9 )\OMS/cmsy/m/n/9 g[]$\OT1/cmr/m/n/9 .
+ []
+
+
+Overfull \hbox (2.1134pt too wide) in paragraph at lines 201--202
+\OT1/cmr/m/n/9 sim-i-lar-ity is con-sis-tent good for gen-eral use. Thus, we pr
+esent
+ []
+
+
+Overfull \hbox (6.13794pt too wide) in paragraph at lines 211--212
+\OT1/cmr/m/n/9 ap-pli-ca-tions, such as rec-om-men-da-tion sys-tem [1] and medi
+cine
+ []
+
+
+Overfull \hbox (43.42204pt too wide) in paragraph at lines 216--217
+\OT1/cmr/m/n/9 where $\OMS/cmsy/m/n/9 P[] \OT1/cmr/m/n/9 = (\OML/cmm/m/it/9 A[]
+; A[]; []  ; A[]; B\OT1/cmr/m/n/9 )$ and $\OMS/cmsy/m/n/9 P[] \OT1/cmr/m/n/9 = 
+(\OML/cmm/m/it/9 B; A[]; []  ; A[]\OT1/cmr/m/n/9 )$.
+ []
+
+(./report.bbl [3]) [4
 
 ] (./report.aux) ) 
 Here is how much of TeX's memory you used:
- 1873 strings out of 493591
- 22529 string characters out of 6143546
- 88567 words of memory out of 5000000
- 5271 multiletter control sequences out of 15000+600000
- 18693 words of font info for 51 fonts, out of 8000000 for 9000
+ 1883 strings out of 493591
+ 22672 string characters out of 6143546
+ 89567 words of memory out of 5000000
+ 5279 multiletter control sequences out of 15000+600000
+ 19314 words of font info for 53 fonts, out of 8000000 for 9000
  1347 hyphenation exceptions out of 8191
- 41i,12n,28p,1048b,250s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,18n,28p,1048b,250s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on report.pdf (3 pages).
+Output written on report.pdf (4 pages).

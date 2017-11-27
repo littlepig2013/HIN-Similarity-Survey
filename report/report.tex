@@ -161,13 +161,82 @@ Another important concept, meta-path, is proposed to systematically define relat
 
 For simplicity, we can also use entity types to denote the meta-path if there are no multiple relation types between the same pair of entity types: $\mathcal{P}=(A_{1}A_{2}\cdots A_{l+1})$. We say a concrete path $p=(a_{1}a_{2}\cdots a_{l+1})$ between entities $a_{1}$ and $a_{l+1}$ in network $G$ is a {\bf path instance} of the relevance path $\mathcal{P}$, if $\forall a_{i}, \varphi(a_{i})=A_{i}$ and $\forall e_{i}= \langle a_{i}, a_{i+1} \rangle, \psi(e_{i})=R_{i}$ in $\mathcal{P}$. It can be denoted as $p \in \mathcal{P}$. A meta-path $\mathcal{P}$ is a {\bf symmetric path}, if the relation $R$ defined by it is symmetric (i.e., $\mathcal{P}$ is equal to $\mathcal{P}^{-1}$), such as $APA$. Two meta-paths $\mathcal{P}_{1}=(A_{1}A_{2}\cdots A_{l})$ and $\mathcal{P}_{2}=(B_{1}B_{2}\cdots B_{k})$ are {\bf concatenable} if and only if $A_{l}$ is equal to $B_{1}$, and the concatenated path is writen as $\mathcal{P}=(\mathcal{P}_{1}\mathcal{P}_{2})$, which equals to $(A_{1}A_{2}\cdots A_{l}B_{2}\cdots B_{k})$.
 
+The commuting matrix is defined in \cite{sun2011pathsim} to compute the frequencies of all the paths related to a meta-path.
+
+\begin{definition}
+{\bf Commuting matrix}. Given a network $G=(V,E)$ and its network schema $T_{G}$, a commuting matrix $M_{\mathcal{P}}$ for a meta-path $\mathcal{P}=(A_{1}, A_{2}, \cdots A_{l+1})$ is defined as $M_{\mathcal{P}}=W_{A_{1}A_{2}}W_{A_{2}A_{3}} \cdots W_{A_{l}A_{l+1}}$, where $W_{A_{i}A_{j}}$ is the adjacency matrix between types $A_{i}$ and $A_{j}$. $M_{\mathcal{P}}(i, j)$ represents the number of path instances between entities $v_{i}$ and $v_{j}$, where $\varphi(v_{i})=A_{1}$ and $\varphi(v_{j})=A_{l+1}$, under mata-path $\mathcal{P}$.
+\end{definition}
+
 \begin{example}
 {\color{red} Example and figure about HIN, schema, meta-path}
 \end{example}
 
 \section{Similarity Measures}
 
+Similarity measure is to evaluate the similarity of entities. It is the basis of many data mining tasks, such as classification, clustering, and recommendation system. Similarity measure has been well studied on different kinds of data types for a long time. These studies can be roughly categorized into two types: {\bf feature based approaches} and {\bf link based approaches}. The feature based approaches measure the similarity of entities based on their feature/attribute values, such as cosine similarity, Jaccard similarity and Euclidean distance. The link based approaches measure the similarity of entities based on their link structures in a network. For instance, Personalized PageRank \cite{jeh2003scaling} evaluates the probability starting from a source object to a target object by randomly walking with restart, and SimRank\cite{jeh2002simrank} evaluates the similarity of two objects by their neighbors' similarities.
 
+In recent years, similarity measures on heterogeneous information networks begin to be noticed by more and more researchers. Apart from the structure similarity addressed by most homogeneous similarity metrics, similarity metrics on HIN also need to take the meta-path connecting these two objects into account. As we know, there are different meta-paths connecting two objects, and these meta paths contain different semantics meanings, which may lead to different similarities. So, the similarity measure on HIN is meta-path constraint \cite{shi2017survey}. {\color{red} Example?} We present the recent state-of-the-art similarity metrics in the following part.
+
+\subsection{PathSim}
+
+PathSim \cite{sun2011pathsim} is the first meta-path based similarity measure to evaluate the similarity of same-typed entities based on symmetric meta-paths.
+
+\begin{definition}
+{\bf PathSim}: Given a symmetric meta-path $\mathcal{P}$, PathSim between two entities $u$ and $v$ of the same entity type is:
+\begin{equation}
+\begin{split}
+\text{PathSim}(u, v) & = \frac{2 \times |\{p_{u\rightsquigarrow v}\in \mathcal{P}\}|}{|\{p_{u\rightsquigarrow u}\in \mathcal{P}\}| + |\{p_{v\rightsquigarrow v}\in \mathcal{P}\}|} \\
+ & =\frac{2 \cdot M_{\mathcal{P}}(u, v)}{M_{\mathcal{P}}(u, u) + M_{\mathcal{P}}(v, v)}
+\end{split}
+\end{equation}
+\end{definition}
+
+\subsection{Distant Meta-Path Similarity}
+Distant meta-path similarity\cite{wang2017distant} is designed to evaluate text-based meta-path similarity between two distant (relatively isolated) entities. Here, distant entities means those two entities can not connected by the given meta-path.
+
+\begin{definition}
+{\bf Distant meta-path similarity}. The distant meta-path similarity between an entity pair describes the proximity of the pair's neighborhood entities. Neighborhood entities are defined as the entities kinked via meta-path(s) to the pair. Let $\{M_{\mathcal{P}}(u, w)\}^{N}_{w=1}$ denotes the meta-path instantces between entity $u$ and its neighborhood entities. The distant meta-path similarity between $u$ and $v$ is the decided by the proximity of $\{M_{\mathcal{P}}(u, w)\}^{N}_{w=1}$ and $\{M_{\mathcal{P}}(v, w)\}^{N}_{w=1}$. Entities $u$ and $v$ are called as distant neighbors to each other.
+\end{definition}
+
+There are 53 similarity metrics, i.e., metrics to measure the similarity between $\{M_{\mathcal{P}}(u, w)\}^{N}_{w=1}$ and $\{M_{\mathcal{P}}(v, w)\}^{N}_{w=1}$, tested in \cite{wang2017distant} to find the best way to define a distant meta-path similarity. Experimental results in \cite{wang2017distant} show cosine similarity is consistent good for general use. Thus, we present cosine similarity based distant meta-path similarity here.
+
+\begin{equation}
+\begin{split}
+& \text{DistantSim}(u, v) \\
+& = \frac{\sum^{M}_{m=1}\sum^{N}_{w=1}M_{\mathcal{P}_{m}}(u,w)M_{\mathcal{P}_{m}}(v,w)}{\sqrt{\sum^{M}_{m=1}\sum^{N}_{w=1}M_{\mathcal{P}_{m}}(u,w)^2}\sqrt{\sum^{M}_{m=1}\sum^{N}_{w=1}M_{\mathcal{P}_{m}}(v,w)^2}}
+\end{split}
+\end{equation}
+
+\subsection{HeteSim}
+The similarity of objects with different are needed in many applications, such as recommendation system \cite{jamali2013heteromf} and medicine annotation analysis \cite{palma2013measuring}. Thus, HeteSim \cite{shi2014hetesim} is proposed for evaluating the similarity of entities with different types.
+
+Before giving the definition of HeteSim, we first introduce the decomposition of meta-path.
+
+\begin{definition}
+{\bf Decomposition of meta-path}. An arbitrary meta-path $\mathcal{P}=(A_{1}, A_{2}, \cdots, A_{l+1})$ can be decomposed into two equal-length path $\mathcal{P}_{L}$ and $\mathcal{P}_{R}$, i.e., $\mathcal{P} = \mathcal{P}_{L}\mathcal{P}_{R}$, where $\mathcal{P}_{L}=(A_{1}, A_{2}, \cdots, A_{mid-1}, B)$ and $\mathcal{P}_{R}=(B, A_{mid+1}, \cdots, A_{l+1})$. If $l$ is even, $B=A_{mid}$. Otherwise, $B$ is the middle type entity $E$ between the atomic relation $A_{\frac{l+1}{2}}A_{\frac{l+1}{2}+1}$. The new path becomes $\mathcal{P}'=(A_{1}, \cdots, E, \cdots, A_{l+1})$, so $B$ is also the middle item of $\mathcal{P}'$.
+\end{definition}
+
+Obviously, for a symmetric path $\mathcal{P} = \mathcal{P}_{L}\mathcal{P}_{R}$, $\mathcal{P}_{R}^{-1}$ is equal to $\mathcal{P}_{L}$. After tranforming the orginal meta-path, when its length is odd, the definition of HeteSim can be expressed:
+
+\begin{definition}
+{\bf HeteSim}. Given a relevance path $\mathcal{P}=(A_{1}, A_{2}, \cdots, A_{l+1})$, the HeteSim score between two entities $u$ and $v$ $(u \in A_{1}, v \in A_{l+1})$ is:
+\begin{equation}
+\text{HeteSim}(u, v) = \frac{\sum^{N}_{w=1}M_{\mathcal{P}_{L}}(u, w) \cdot M_{\mathcal{P}_{R}^{-1}}(v, w)}{\sqrt{\sum^{N}_{w=1}M_{\mathcal{P}_{m}}(u,w)^2}\sqrt{\sum^{N}_{w=1}M_{\mathcal{P}_{m}}(v,w)^2}}
+\end{equation}
+\end{definition}
+
+\subsection{RelSim}
+
+RelSim \cite{wang2016relsim} is a meta-path based relation similarity measure. It measures the similarity between two relation instances based on the latent semantic relation (LSR): two relation instances are more similar when sharing more important (heavily weighted) meta-paths.
+
+\begin{definition}
+{\bf RelSim}. Given an LSR (latent semantic relation), denoted as $\{w_{m}, \mathcal{P}_{m}\}^{M}_{m=1}$, RelSim between two 
+relation instances $r = \langle v^{(1)}, v^{(2)} \rangle$ and $r' = \langle v^{(1)'}, v^{(2)'} \rangle$ is defined as:
+\begin{equation}
+\text{RelSim}(r, r') = \frac{2 \times \sum_{m}w_{m}\text{min}(x_{m}, x_{m}')}{\sum_{m}w_{m}x_{m}+\sum{m}x_{m}x_{m}'}
+\end{equation}
+where $x_{m}$ is the number of path instances between $v^{(1)}$ and $v^{(2)}$ in relation $r$ following meta-path $\mathcal{P}_{m}$, and $x_{m}'$ is the number of path instances between $v^{(1)'}$ and $v^{(2)'}$ in relation $r'$ following meta-path $\mathcal{P}_{m}$. We use a vector $\mathbf{x}=[x_1, \cdots, x_m, \cdots, x_{M}]$ to charachterize a relation instance $r$, and a vector $\mathbf{w}=[w_{1}, \cdots, w_{m}, \cdots, w_{M}]$ to denote the corresponding weights. $M$ is the number of meta-paths.
+\end{definition}
 
 % Typically, the body of a paper is organized
 % into a hierarchical structure, with numbered or unnumbered
