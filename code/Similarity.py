@@ -213,6 +213,7 @@ def getSignSim(hin, sEntity, tEntity, metaPath, simType=1):
 				firstSignSimDict = getRedundantSim(hin, sEntityInfo, None, splittedMetaPaths[0]['metaPath'])
 			else:
 				firstSignSimDict = getAtomicSim(hin, sEntityInfo, None, splittedMetaPaths[0]['metaPath'], simType)
+				print(firstSignSimDict)
 
 			nextEntityType = splittedMetaPaths[0]['metaPath'][-1]
 			for entityId in firstSignSimDict:

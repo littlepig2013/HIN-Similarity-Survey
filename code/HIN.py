@@ -5,7 +5,7 @@ import numpy as np
 import pickle
 
 DATASET_DIR = "dataset/"
-USER_RATE_FILENAME = "users_rate.txt"
+USER_RATE_FILENAME = "users_rate_train.txt"
 MOVIE_GENRE_FILENAME = "movie_genres.txt"
 MOVIE_DIRECTOR_FILENAME = "movie_directors.txt"
 MOVIE_ACTOR_FILENAME = "movie_actors.txt"
@@ -24,7 +24,7 @@ class EntityInfo:
 		tmpEntityType = None
 		tmpEntityId = None
 		tmpRelations = None
-		# Select a relation list and an entity type	
+		# Select a relation list and an entity type
 		if inRelationFlag:
 			if hasattr(relation, 'endEntity') and relation.endEntity == self.entity:
 				tmpEntityType = relation.startEntity.entityType
@@ -40,7 +40,7 @@ class EntityInfo:
 			# Add the relation
 			if tmpEntityType in tmpRelations:
 				tmpRelationIndexDict = tmpRelations[tmpEntityType]['relIndexDict']
-				if tmpEntityId in tmpRelationIndexDict: 
+				if tmpEntityId in tmpRelationIndexDict:
 					tmpRelationIndexDict[tmpEntityId].append(relationIndex)
 				else:
 					tmpRelationIndexDict[tmpEntityId] = [relationIndex]
@@ -93,7 +93,7 @@ def loadRelationFile(hin, relationFileName, startEntityType, endEntityType):
 			relationLine = relationLine.strip()
 			relation = relationLine.split(' ')
 
-			# Data sensitive -> type ... 
+			# Data sensitive -> type ...
 			# Load the start entity and the end entity
 			startEntityId = int(relation[0])
 			endEntityId = relation[1]
@@ -143,7 +143,7 @@ def main():
 	hin['Relations'] = []
 	hin['EntityTypes'] = dict()
 	hin['RelationTypes'] = dict()
-	
+
 
 	# Start load data
 	loadRelationFile(hin, USER_RATE_FILENAME, 'user', 'movie')
