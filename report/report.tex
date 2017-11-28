@@ -24,7 +24,7 @@
 % and prior to final submission,
 % you need to 'insert'  your .bbl file into your source .tex file so as to provide
 % ONE 'self-contained' source file.
-%
+%\includegraphics[scale=1]{figures/network_instance.pdf} 
 % Questions regarding SIGS should be sent to
 % Adrienne Griscti ---> griscti@acm.org
 %
@@ -269,8 +269,133 @@ relation instances $r = \langle v^{(1)}, v^{(2)} \rangle$ and $r' = \langle v^{(
 where $x_{m}$ is the number of path instances between $v^{(1)}$ and $v^{(2)}$ in relation $r$ following meta-path $\mathcal{P}_{m}$, and $x_{m}'$ is the number of path instances between $v^{(1)'}$ and $v^{(2)'}$ in relation $r'$ following meta-path $\mathcal{P}_{m}$. We use a vector $\mathbf{x}=[x_1, \cdots, x_m, \cdots, x_{M}]$ to charachterize a relation instance $r$, and a vector $\mathbf{w}=[w_{1}, \cdots, w_{m}, \cdots, w_{M}]$ to denote the corresponding weights. $M$ is the number of meta-paths.
 \end{definition}
 
+\subsection{SignSim}
+
+To handle meta-paths with negative links in a signed heterogeneous information network, SignSim\cite{zhu2015relevance} is proposed to measure the relatedness of objects with different types in signed HIN, based on signed meta-path factorization. To understand what the meta-path factorization is, we also need to know the definition of atomic meta-path. The two definitions are given as follows,
+
+\begin{definition}
+{\bf Atomic Meta-path}. Atomic meta-path is a minimum part of a signed meta=path that can be used to compute the similarity between objects of the same type.
+\end{definition}
+
+\begin{definition}
+{\bf Meta-path Factorization}. Meta-path factorization splits a signed meta-path into multiple atomic meta-paths, and then the relatedness between objects from different types can be computed based on the signed meta-paths.
+\end{definition}
+The main  idea of SignSim can be expressed by the following three formulas.
+\begin{equation}
+P = P_{1}P_{2} \cdots P_{i} P_{n}
+\end{equation}
+The first formula represents the decomposition of meta-path $P$, and $P_{i}(1 \leq i \leq n)$ is the atomic meta-path or redundant meta-path. 
+\begin{equation}
+U_{i} = \bigcup\limits_{o_{i-1} \in U_{i-1}}s(o_{i-1}, o_{i}|P_{i-1}) \;and\; U_{1} = o_{1}
+\end{equation}
+In the second formula, $U_{i}$ is the possible target node space of the node $o_{i}$, $s(o_{i-1}, o_{i}|P_{i-1})$ is the set of the object $o_{i}$ positively related to object $o_{i-1}$ based on the meta-path $P_{i-1}$.
+
+\begin{equation}
+\begin{split}
+& SignSim(o_{1}, o_{n}|P)\\
+& = \sum\limits_{o_{2} \in U_{2}} \cdots \sum\limits_{o_{n-1} \in U_{n-1}} sim(o_{1}, o_{2}|P_{1}) \cdots sim(o_{n-1}, o_{n}|P_{n-1})
+\end{split}
+\end{equation}
+In the last formula, $s(o_{i-1}, o_{i}|P_{i-1})$ is the relatedness between objects $o_{i-1}$ and $o_{i}$ based on meta-path $P_{i-1}$.
+
+Next, an example about the relation between users and movies is given to show how to measure the similarity on atomic meta-path and redundant meta-path.
+
+\textbf{Atomic Meta-path:User-Movie-User}. This meta-path contains two edges and both of them can be signed, which represents the user's rating toward a movie. The similarity between two users $u_{i}$ and $u_{j}$ can be obtained from the $n*m$ adjancy matrix $W_{UM} = [v_{ij}]_{n \times m}$ between users and movies. The $m$ is the number of the network and $n$ is the number of users. And we denote the row of the matrix with vector $u^{i}$  in which $i(1 \leq i \leq n)$ is the row number. The similarity between the two users $u_{i}$ and $u_{j}$ is measured by cosine similarity based on vector space model. That is:
+
+\begin{equation}
+v_{ij}=
+\begin{cases}
+1& \text{user } u_{i} \text{ enjoys movie } m_{j}\\
+-1& \text{user } u_{i} \text{ doesn't enjoy movie } m_{j}\\
+0& \text{user } u_{i} \text{ never see movie } m_{j}
+\end{cases}
+\end{equation} 
+\begin{equation}
+sim(u_{i},u_{j}|UMU)=cos(u^{i},u^{j})=\frac{u^{i} \cdot u^{j}}{|u^{i}|*|u^{j}|}
+\end{equation}
+
+\textbf{Redundant Meta-path:User-Movie}. The redundant meta-path $UM$, containing a signed edge, describes the movie seen by the user. The relevance based on redundant meta-path can be computed directly without meta-path factorization. That is:
+
+\begin{equation}
+sim(u_{i}, m_{j}|UM) = \frac{v_{ij}}{|D_{s}(u_{i}|UM)|*|D_{s}(m_{j})|UM|}
+\end{equation}
+\begin{equation}
+v_{ij}=
+\begin{cases}
+1& \text{user } u_{i} \text{ enjoys movie } m_{j}\\
+-1& \text{user } u_{i} \text{ doesn't enjoy movie } m_{j}\\
+0& \text{user } u_{i} \text{ never see movie } m_{j}
+\end{cases}
+\end{equation}
+\begin{equation}
+D_{s}(u_{i}|UM)=
+\begin{cases}
+D_{+}(u_{i}|UM)& v_{ij} = 1 \\
+D_{-}(u_{i}|UM)& v_{ij} = -1
+\end{cases}
+\end{equation}
+
+where $D_{+}(u_{i}|UM)$ is the neighbor set of node $u_{i}$ based on positive edges of $UM$, and $D_{-}(u_{i}|UM)$ is the neighbor set of $u_{i}$ based on negative edges of $UM$.
+\subsection{WsRel}
+
+WsRel \cite{zhu2017measuring} is a recently proposed relevance measure method, which can be applied in a weighted signed heterogeneous information network. It is devised to evaluate the relatedness of two objects with different types in a more complicated HIN. Specifically, it firstly transforms a signed network to a non-signed network, and then calculates relatedness of source object and target oobject based on various single meta-paths.\\
+
+Sigmoid function $f(x)=\frac{1}{1+e^{-x}}$ is used to be the mapping function to implement the transformation from the origin signed network to a new non-signed network. After we obtain the new network, the definition of WsRel is given as follows:
+
+\begin{definition}
+{\bf WsRel}. Given an meta-path $P=A_{1}\xrightarrow{R_{1}}A_{2}\xrightarrow{R_{2}}\cdots \xrightarrow{R_{l}}A_{l+1}$, the relatedness of source object $s$ and target object $t$ following the meta-path $P$ is:
+\begin{equation}
+\begin{split}
+& \text{WsRel}(s, t|R_{1} R_{2} \cdots R_{l})\\ & = \frac{1}{|O(s|R_{1})|}\sum\limits_{s' \in O(s|R_{1})} w(s, s') \cdot WsRel(s', t|R_{2} R_{3} \cdots R_{l})
+\end{split}
+\end{equation}
+where $O(s|R_{1})$ is the out-neighbors of  $s$ based on relation $R_{1}$, and $w(s, s')$ is reassigned weight value of the link between $s$ and $s'$. 
+\end{definition}
+
 \section{Experiments}
-We implement PathSim, WsRel, SignSim, HeteSim in Python 3 to perform a general evaluation. 
+We implemented ExPathSim, WsRel, SignSim, HeteSim in Python 3 to perform a general evaluation on similarity calculation on objects with different types.Note that SignSim originally does not fit weighted HIN and thus we made some improvement on the SignSim to make it support weighted HIN. The new-version SignSim will be introduced later in this section.
+\subsection{Dataset}
+We used hetrec2011-movielens\cite{cantador2011second} dataset for evaluation. It contains 2K users, 10K movies, 4K directors, 21K actors and 20 genres. According to the previous similar experiment in WsRel \cite{zhu2017measuring}, we then chosen the ﬁrst 5 main actors from the original dataset according to the orders of actors in the cast. Also, we manually gave the relation from the movie to the actor, according to her ranking in he case. For example, if the actor $a_{i}$ ranks 4th in the movie $m_{j}$, the weight of the relation from $m_{j}$ to $a_{i}$ is $6 - 4=2$. By this approach, the higher ranking means more weight of the relation. \\
+
+At the same time, the rating scores range from 0.5 to 5.0 on the links between users and movies, where a higher score means a stronger preference. However, because of the existence of individual differences, if we directly deﬁne that raw scores larger than some values, such as 3.0, means users like movies, it is not very reasonable. So we need to normalize the rating scores, such that it can be compared directly between different distributions of raw scores, which can also generate some links with negative weight. \\
+The standard score $z_{u}$ of user $u$'s raw score $r_{u}$ can be calculated by
+\begin{equation}
+z_{u} = \dfrac{r_{u} - \mu_{u}}{\sigma_{u}}
+\end{equation}
+where $\mu_{u}$ is the mean of the rating scores of user $u$, $\sigma_{u}$ is the standard deviation of the rating scores of user $u$. After applying the normalization, the weighted signed heterogeneous information network can be constructed on this dataset, which contains five types of objects: user, movie, dirctor, genre and actor.\\
+
+\subsection{Metrics}
+
+To evaluate these four approaches of similarity calculation, we randomly chose her 50\% rating records and the remaining are testing data. And then we use the 50\% rating records and the whole data on other-type objects to construct the heterogeneous information network. Given a user, we firstly use her rated movies in the remaining data as the candidate movies, and then according to different similarity calculation methods, we generate a list of $K$ movies named $R_{u}$, which are top-$K$ movies among all the candidate movies. If the movie in $R_{u}$ is also in the top-$K$ rated movies in the candidate movies. We call it a hit. Since here the recall is the same as the precision, we here only use standard precesion as the metric to evaluate the results.
+
+\subsection{New-version SignSim(NSignSim)}
+
+To make SignSim applicable in weighted signed HIN, we made a little improvement in the origin method. Similarly, here we use the example meta-path $UMU$ and $UM$ to explain how to calculate NSignSim.\\
+
+\textbf{Atomic Meta-path:User-Movie-User}. As we've introduced, the similarity between two users $u_{i}$ and $u_{j}$ can be obtained from the $n*m$ adjancy matrix $W_{UM} = [v_{ij}]_{n \times m}$ between users and movies. Note that $v_{ij}$ doesn't mean the same thing as before. In NSignSim, $v_{ij}$ represents the user $u_{i}$'s rating on the movie $m_{j}$. The $m$ is the number of the network and $n$ is the number of users. And again, we denote the row of the matrix with vector $u^{i}$  in which $i(1 \leq i \leq n)$ is the row number. The similarity between the two users $u_{i}$ and $u_{j}$ can be measured by cosine similarity or Euclidean distance. That is:
+
+\begin{equation}
+sim(u_{i},u_{j}|UMU)=cos(u^{i},u^{j})=\frac{u^{i} \cdot u^{j}}{|u^{i}|*|u^{j}|}
+\end{equation}
+\begin{equation}
+sim(u_{i},u_{j}|UMU)=\frac{1}{1+||u^{i} - u^{j}||_{2}}
+\end{equation}
+where $||\overrightarrow{x}||_{2} = \sqrt{|x_{1}|^{2}+ \cdots + |x_{n}|^{2}}$
+
+\textbf{Redundant Meta-path:User-Movie}. The redundant meta-path $UM$, containing a signed and weighted edge, describes the movie seen by the user. Again, $v_{ij}$ here means the user $u_{i}$'s rating towards the movie $m_{j}$. We didn't change the revalance based on redundant meta-path. But there is a noteworthy thing for the following equation:
+
+\begin{equation}
+D_{s}(u_{i}|UM)=
+\begin{cases}
+D_{+}(u_{i}|UM)& v_{ij} > 0 \\
+D_{-}(u_{i}|UM)& v_{ij} < 0
+\end{cases}
+\end{equation}
+
+where $D_{+}(u_{i}|UM)$ is the neighbor set of node $u_{i}$ based on positive edges of $UM$, and $D_{-}(u_{i}|UM)$ is the neighbor set of $u_{i}$ based on negative edges of $UM$. Actually we can also use $D_{+}(u_{i}|UM)$ represents the number of the users who has similar rating and $D_{+}(u_{i}|UM)$ represents the number of the movies that also has similar rating. In this experiment, to make it simpler, we only determine it by the weight's sign, just as the previous one did.
+
+\subsection{Experiment Results}
+
 \section{Conclusion}
 
 % Typically, the body of a paper is organized

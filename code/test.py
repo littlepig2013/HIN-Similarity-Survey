@@ -1,6 +1,6 @@
 from HIN import EntityInfo
 from Similarity import *
-import pickle, random, math
+import pickle, random, math, time
 
 # loading remaining user rating record to evaluae the similarity method
 def loadRatingGroundTruth(currentUserId, movieSampleNum):
@@ -50,19 +50,33 @@ def getMovieRank(hin, userEntityInfo, sampledMovies, metaPath, simFunc):
 
     # get the similarity value and rank them
     movieRank = []
+    timeCost = 0
+    simCalCount = 0
     movieEntityInfoIndexes = hin['EntityTypes']['movie']
     for movieId in sampledMovies:
         movieEntity = hin['Entities'][movieEntityInfoIndexes[movieId]].entity
         if movieEntity.entityId not in ratedMovieId:
+            startTime = time.time()
             sim = simFunc(hin, userEntity, movieEntity, metaPath)
+            endTime = time.time()
+            timeCost += endTime - startTime
+            simCalCount += 1
             movieRank.append((sim, movieId))
     movieRank.sort(reverse=True)
-    return movieRank
+
+    if simCalCount == 0:
+        timeCost = None
+    else:
+        timeCost /= simCalCount
+
+    return movieRank, timeCost
 
 
 def getMetrics(groundTruth, predictResult, k):
     if k > len(groundTruth):
         k = len(groundTruth)
+        print("Not enough candidate movies")
+        print("current candidate num:" + str(k))
 
     movieIdSample1 = set([movieId for _, movieId in groundTruth])
     movieIdSample2 = set([movieId for _, movieId in predictResult])
@@ -90,12 +104,7 @@ def getMetrics(groundTruth, predictResult, k):
             hitCount += 1
     precision = hitCount/k
 
-    # calculate the MAP
-    MAP = 1
-    for _, movieId in  predictResultTopK:
-        MAP *= groundTruthDict[movieId]
-
-    return precision, -math.log(MAP)
+    return precision
 
 
 def main():
@@ -104,12 +113,12 @@ def main():
     f.close()
 
     K = 10
-    userSampleNum = 100
+    userSampleNum = 10
     movieSampleNum = 50
 
     print('k ', K, 'user ', userSampleNum, 'movie', movieSampleNum)
     # Meta path
-    metaPath = ['user','movie','actor','movie']
+    metaPath = ['user','movie','genre','movie']
 
     hinEntities = HIN['Entities']
     userEntityIdDict = HIN['EntityTypes']['user']
@@ -121,20 +130,26 @@ def main():
     simFuncList = [getWsRel, getSignSim, getPathSim, getHeteSim]
     simFuncNameList = ['WsRel', 'SignSim', 'PathSim', 'HeteSim', ]
     for i in range(4):
-        finalPrecision = finalMAP = 0
+        finalPrecision = avgTimeCost = 0
         for userId in sampledUserEntityIdList:
             userEntityInfo = HIN['Entities'][HIN['EntityTypes']['user'][userId]]
             # generate the sampled movies and get the ground truth result
             sampledMovies, rateGroundTruth = loadRatingGroundTruth(userId, movieSampleNum)
-            movieRank = getMovieRank(HIN, userEntityInfo, sampledMovies, metaPath, simFuncList[i])
-            precision, MAP = getMetrics(rateGroundTruth, movieRank, K)
+            movieRank, timeCost = getMovieRank(HIN, userEntityInfo, sampledMovies, metaPath, simFuncList[i])
+            if movieRank == [] and timeCost == None:
+                userSampleNum -= 1
+                continue
+            precision = getMetrics(rateGroundTruth, movieRank, K)
             finalPrecision += precision
-            finalMAP += MAP
-        finalPrecision /= userSampleNum
-        finalMAP /= userSampleNum*math.factorial(K)
-        print()
-        print(simFuncNameList[i] + " Result:")
-        print("Precision -> %.4f; -log(MAP) -> %.10f" % (finalPrecision, finalMAP))
+            avgTimeCost += timeCost
+        if userSampleNum != 0:
+            finalPrecision /= userSampleNum
+            avgTimeCost /= userSampleNum
+            print()
+            print(simFuncNameList[i] + " Result:")
+            print("Precision -> %.4f; cost time -> %.10f" % (finalPrecision, avgTimeCost))
+        else:
+            print("Failed to select candidate movies to perform the evaluation.")
 
 
 if __name__ == '__main__':

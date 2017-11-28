@@ -10,7 +10,7 @@ for record in data:
 	else:
 		userDict[userStr].append([movieStr, ratingStr])
 
-TRAINING_RATE = 0.3
+TRAINING_RATE = 0.5
 fout1 = open('users_rate_train.txt','w')
 fout2 = open('users_rate_test.txt','w')
 for userStr in userDict:
