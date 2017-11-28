@@ -6,7 +6,7 @@ import math
 
 # simType = 1 -> cosin similarity
 # simType = 2 -> Euclidean similarity
-def getSignSim(hin, sEntity, tEntity, metaPath, simType=1):
+def getSignSim(hin, sEntity, tEntity, metaPath, simType=2):
 	'''
 	calculate signed similarity of two entities, sEntity and tEntity
 	:param HIN: the heterogeneous information network
@@ -400,7 +400,11 @@ def getHeteSim(HIN, sEntity, tEntity, meta_path):
 		denominator2 += distri_end[key] ** 2
 	denominator1 = math.sqrt(denominator1)
 	denominator2 = math.sqrt(denominator2)
-	return numerator / denominator1 / denominator2
+	denominator = denominator2 * denominator1
+	if denominator == 0:
+		return 0
+	else:
+		return numerator / denominator
 
 def getPathSim(HIN, sEntity, tEntity, meta_path):
 	'''
@@ -425,7 +429,11 @@ def getPathSim(HIN, sEntity, tEntity, meta_path):
 		denominator1 += distri_start[key]
 	for key in distri_end:
 		denominator2 += distri_end[key]
-	return numerator / (denominator1 + denominator2)
+	denominator = denominator2 + denominator1
+	if denominator == 0:
+		return 0
+	else:
+		return numerator / denominator
 
 def getJoinSim(HIN, sEntity, tEntity, meta_path):
 	'''

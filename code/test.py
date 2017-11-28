@@ -104,9 +104,10 @@ def main():
     f.close()
 
     K = 10
-    userSampleNum = 5
+    userSampleNum = 100
     movieSampleNum = 50
 
+    print('k ', K, 'user ', userSampleNum, 'movie', movieSampleNum)
     # Meta path
     metaPath = ['user','movie','actor','movie']
 
