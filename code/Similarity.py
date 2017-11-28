@@ -329,12 +329,13 @@ def neighbor_distribution(HIN, sEntity, meta_path, flag = 0):
 			else:
 				distri[entity_key] += 1
 			continue
-		for key in cur_entity.outRelations[meta_path[pos + 1]]['relIndexDict']:
-			for relation in cur_entity.outRelations[meta_path[pos + 1]]['relIndexDict'][key]:
-				entity = HIN['Relations'][relation].endEntity
-				entityInfoIdx = HIN['EntityTypes'][entity.entityType][entity.entityId]
-				entityInfo = HIN['Entities'][entityInfoIdx]
-				q.put((entityInfo, pos + 1, cur_entity))
+		if meta_path[pos + 1] in cur_entity.outRelations:
+			for key in cur_entity.outRelations[meta_path[pos + 1]]['relIndexDict']:
+				for relation in cur_entity.outRelations[meta_path[pos + 1]]['relIndexDict'][key]:
+					entity = HIN['Relations'][relation].endEntity
+					entityInfoIdx = HIN['EntityTypes'][entity.entityType][entity.entityId]
+					entityInfo = HIN['Entities'][entityInfoIdx]
+					q.put((entityInfo, pos + 1, cur_entity))
 
 	return distri
 
@@ -415,7 +416,9 @@ def getPathSim(HIN, sEntity, tEntity, meta_path):
 	distri_start = neighbor_distribution(HIN, sEntity, meta_path)
 	distri_end = neighbor_distribution(HIN, tEntity, list(reversed(meta_path)))
 	tEntity_key = tEntity.entity.entityId
-	numerator = 2 * distri_start[tEntity_key]
+	numerator = 0
+	if tEntity_key in distri_start:
+		numerator = 2 * distri_start[tEntity_key]
 	denominator1 = 0
 	denominator2 = 0
 	for key in distri_start:
