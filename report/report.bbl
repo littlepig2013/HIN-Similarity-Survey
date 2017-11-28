@@ -105,4 +105,11 @@ C.~Wang, Y.~Sun, Y.~Song, J.~Han, Y.~Song, L.~Wang, and M.~Zhang.
 \newblock In {\em Proceedings of the 2016 SIAM International Conference on Data
   Mining}, pages 621--629. SIAM, 2016.
 
+\bibitem{zhu2017measuring}
+T.~Zhu, Z.~Peng, S.~Wang, S.~Y. Philip, and X.~Hong.
+\newblock Measuring the relevance of different-typed objects in weighted signed
+  heterogeneous information networks.
+\newblock In {\em Computer Supported Cooperative Work in Design (CSCWD), 2017
+  IEEE 21st International Conference on}, pages 556--561. IEEE, 2017.
+
 \end{thebibliography}

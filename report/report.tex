@@ -35,6 +35,8 @@
 
 \documentclass{acm_proc_article-csis8101}
 \usepackage{color}
+\usepackage{subfig}
+\graphicspath{{figures/}}
 
 \newdef{definition}{Definition}
 \newdef{example}{Example}
@@ -97,7 +99,7 @@ Recently, researchers use heterogeneous information networks (HINs) to model rea
 
 Because of HIN's property of rich semantics and information, since the concept of heterogeneous information network and meta path proposed in 2009 \cite{sun2009rankclus} and 2011 \cite{sun2011pathsim}, respectively, more and more researchers have noticed the importance of heterogeneouse information network analysis and many novel data mining tasks have been developed in such networks, such as similarity search \cite{shi2012relevance,sun2011pathsim}, clustering \cite{sun2013pathselclus}. In other words, HIN analysis has become a hot topic rapidly in the fields of data mining, database and information retrieval, involving similarity measure, clustering, classification, link prediction, ranking, recommendation and information fusion on HINs \cite{shi2017survey}.
 
-Among those analysis tasks, similarity measure is the fundamental problem of network analysis, because most high level tasks, such as clustering and classification, need to evaluate the similarity of objects or relations. What's more, most of the state-of-the-art homogeneous network similarity methods, which generally assume the networks don't carry semantics, do not generalize well in HINs, due to HINs' rich semantics. Thus, some similarity metrics based on meta-path, which represents semantics in HINs, have been designed to evaluate the similarity between entities or relations in HINs, such as PathSim \cite{sun2011pathsim} and RelSim \cite{wang2016relsim}. {\color{red} Maybe some figure of HIN and an example...}
+Among those analysis tasks, similarity measure is the fundamental problem of network analysis, because most high level tasks, such as clustering and classification, need to evaluate the similarity of objects or relations. What's more, most of the state-of-the-art homogeneous network similarity methods, which generally assume the networks don't carry semantics, do not generalize well in HINs, due to HINs' rich semantics. Thus, some similarity metrics based on meta-path, which represents semantics in HINs, have been designed to evaluate the similarity between entities or relations in HINs, such as PathSim \cite{sun2011pathsim} and RelSim \cite{wang2016relsim}.
 
 In this paper, we attempts to clearly introduce basic concepts in heterogeneous network analysis and make a conprehensive investigation on contemporary research developments of similarity metrics on HINs. Then, we tentatively provide a general evaluation over some of these state-of-the-art algorithms to give some reference on similarity measure choosing in high level network analysis tasks, such as clustering and classification.
 
@@ -145,6 +147,21 @@ Based on the definition of information network, we derive the definitions of het
 {\bf Heterogeneous/homogeneous information network}. The information network is called heterogeneous information network if the type of entities $|\mathcal{A}|>1$ or the types of relations $|\mathcal{R}|>1$; otherwise, it is a homogeneous information network.
 \end{definition}
 
+\begin{example}
+Figure \ref{fig:network_instance} shows a HIN example on bibliographic data \cite{sun2013mining}. A bibliographic information network, such as the bibliographic network shown in Figure \ref{fig:network_instance}, is a typical HIN containing three types of entities: papers, venues and authors. For each paper, it has links to a set of authors, and a venue, and these relations belong to a set of relation types.
+\end{example}
+
+\begin{figure}[!t]
+\centering
+\subfloat[Network instance]{\includegraphics[width=1.60in]{network_instance.pdf}%
+\label{fig:network_instance}}
+\hfil
+\subfloat[Network schema]{\includegraphics[width=1.60in]{network_schema.pdf}%
+\label{fig:network_schema}}
+\caption{An example of heterogeneous information network on bibliographic data.}
+\label{fig:network}
+\end{figure}
+
 For better understanding the entity types and relation types in a complex heterogeneous information network, the network schema provides a high-level description of a given heterogeneous information network.
 
 \begin{definition}
@@ -152,6 +169,10 @@ For better understanding the entity types and relation types in a complex hetero
 \end{definition}
 
 The network schema of a HIN specifies type constraints on the sets of entities and relationships among those entities. An information network following a network schema is called a {\bf network instance} of the network schema. For a relation type $R$ connecting entity type $S$ to entity type $T$, i.e., $S\xrightarrow{R} T$, $S$ and $T$ are the {\bf source entity type} and {\bf target entity type} of relation type $R$, which can be denoted as $R.S$ and $R.T$, respectively. The inverse relation $R^{-1}$ holds naturally for $T \xrightarrow{R^{-1}} S$. Generally, $R$ is not equal to $R^{-1}$, unless $R$ is symmetric.
+
+\begin{example}
+Figure \ref{fig:network_instance} demonstrates the real entities and their relations on bibliographic data. Figure \ref{fig:network_schema} shows the corresponding network schema of the HIN shown in Figure \ref{fig:network_instance}. There are three different entity types: papers ($P$), authors ($A$) and venues ($V$). There are relations connecting different types of objects. The link types are defined by the relations between two entity types. For instance, links existing between authors and papers denote the writing or writen-by relations.
+\end{example}
 
 Another important concept, meta-path, is proposed to systematically define relations between entities at the schema level.
 
@@ -161,15 +182,15 @@ Another important concept, meta-path, is proposed to systematically define relat
 
 For simplicity, we can also use entity types to denote the meta-path if there are no multiple relation types between the same pair of entity types: $\mathcal{P}=(A_{1}A_{2}\cdots A_{l+1})$. We say a concrete path $p=(a_{1}a_{2}\cdots a_{l+1})$ between entities $a_{1}$ and $a_{l+1}$ in network $G$ is a {\bf path instance} of the relevance path $\mathcal{P}$, if $\forall a_{i}, \varphi(a_{i})=A_{i}$ and $\forall e_{i}= \langle a_{i}, a_{i+1} \rangle, \psi(e_{i})=R_{i}$ in $\mathcal{P}$. It can be denoted as $p \in \mathcal{P}$. A meta-path $\mathcal{P}$ is a {\bf symmetric path}, if the relation $R$ defined by it is symmetric (i.e., $\mathcal{P}$ is equal to $\mathcal{P}^{-1}$), such as $APA$. Two meta-paths $\mathcal{P}_{1}=(A_{1}A_{2}\cdots A_{l})$ and $\mathcal{P}_{2}=(B_{1}B_{2}\cdots B_{k})$ are {\bf concatenable} if and only if $A_{l}$ is equal to $B_{1}$, and the concatenated path is writen as $\mathcal{P}=(\mathcal{P}_{1}\mathcal{P}_{2})$, which equals to $(A_{1}A_{2}\cdots A_{l}B_{2}\cdots B_{k})$.
 
+\begin{example}
+As the example shown in Figure \ref{fig:network}, authors can be connected via different meta-paths, such as $(A,P,A)$, i.e., "Author-Paper-Venue" path and $(A,P,V,P,A)$, i.e., "Author-Paper-Venue-Paper-Author" path. It is obvious that semantics underneath these paths are different. The $(A,P,A)$ path means authors collabrating on the same papers, while $(A,P,V,P,A)$ path means authors publishing papers on the same venue.
+\end{example}
+
 The commuting matrix is defined in \cite{sun2011pathsim} to compute the frequencies of all the paths related to a meta-path.
 
 \begin{definition}
 {\bf Commuting matrix}. Given a network $G=(V,E)$ and its network schema $T_{G}$, a commuting matrix $M_{\mathcal{P}}$ for a meta-path $\mathcal{P}=(A_{1}, A_{2}, \cdots A_{l+1})$ is defined as $M_{\mathcal{P}}=W_{A_{1}A_{2}}W_{A_{2}A_{3}} \cdots W_{A_{l}A_{l+1}}$, where $W_{A_{i}A_{j}}$ is the adjacency matrix between types $A_{i}$ and $A_{j}$. $M_{\mathcal{P}}(i, j)$ represents the number of path instances between entities $v_{i}$ and $v_{j}$, where $\varphi(v_{i})=A_{1}$ and $\varphi(v_{j})=A_{l+1}$, under mata-path $\mathcal{P}$.
 \end{definition}
-
-\begin{example}
-{\color{red} Example and figure about HIN, schema, meta-path}
-\end{example}
 
 \section{Similarity Measures}
 
@@ -187,6 +208,16 @@ PathSim \cite{sun2011pathsim} is the first meta-path based similarity measure to
 \begin{split}
 \text{PathSim}(u, v) & = \frac{2 \times |\{p_{u\rightsquigarrow v}\in \mathcal{P}\}|}{|\{p_{u\rightsquigarrow u}\in \mathcal{P}\}| + |\{p_{v\rightsquigarrow v}\in \mathcal{P}\}|} \\
  & =\frac{2 \cdot M_{\mathcal{P}}(u, v)}{M_{\mathcal{P}}(u, u) + M_{\mathcal{P}}(v, v)}
+\end{split}
+\end{equation}
+\end{definition}
+
+PathSim is extended to ExPathSim for evaluting the asymmetric meta-path based and different-typed entities similarity in \cite{zhu2017measuring}. 
+
+\begin{definition}
+\begin{equation}
+\begin{split}
+\text{ExPathSim}(u, v) & =\frac{2 \cdot M_{\mathcal{P}}(u, v)}{\sum_{w=1}^{N}M_{\mathcal{P}}(u, w) + \sum_{w=1}^{N}M_{\mathcal{P}^{-1}}(v, w)}
 \end{split}
 \end{equation}
 \end{definition}
@@ -237,6 +268,10 @@ relation instances $r = \langle v^{(1)}, v^{(2)} \rangle$ and $r' = \langle v^{(
 \end{equation}
 where $x_{m}$ is the number of path instances between $v^{(1)}$ and $v^{(2)}$ in relation $r$ following meta-path $\mathcal{P}_{m}$, and $x_{m}'$ is the number of path instances between $v^{(1)'}$ and $v^{(2)'}$ in relation $r'$ following meta-path $\mathcal{P}_{m}$. We use a vector $\mathbf{x}=[x_1, \cdots, x_m, \cdots, x_{M}]$ to charachterize a relation instance $r$, and a vector $\mathbf{w}=[w_{1}, \cdots, w_{m}, \cdots, w_{M}]$ to denote the corresponding weights. $M$ is the number of meta-paths.
 \end{definition}
+
+\section{Experiments}
+We implement PathSim, WsRel, SignSim, HeteSim in Python 3 to perform a general evaluation. 
+\section{Conclusion}
 
 % Typically, the body of a paper is organized
 % into a hierarchical structure, with numbered or unnumbered

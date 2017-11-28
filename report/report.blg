@@ -4,45 +4,45 @@ The top-level auxiliary file: report.aux
 The style file: abbrv.bst
 Database file #1: report.bib
 Warning--empty journal in wang2017distant
-You've used 16 entries,
+You've used 17 entries,
             2118 wiz_defined-function locations,
-            590 strings with 7256 characters,
-and the built_in function-call counts, 7497 in all, are:
-= -- 763
-> -- 383
-< -- 10
-+ -- 151
-- -- 134
-* -- 531
-:= -- 1163
-add.period$ -- 58
-call.type$ -- 16
-change.case$ -- 115
+            595 strings with 7568 characters,
+and the built_in function-call counts, 8055 in all, are:
+= -- 821
+> -- 411
+< -- 11
++ -- 162
+- -- 144
+* -- 569
+:= -- 1245
+add.period$ -- 62
+call.type$ -- 17
+change.case$ -- 123
 chr.to.int$ -- 0
-cite$ -- 17
-duplicate$ -- 293
-empty$ -- 548
-format.name$ -- 134
-if$ -- 1636
+cite$ -- 18
+duplicate$ -- 316
+empty$ -- 589
+format.name$ -- 144
+if$ -- 1762
 int.to.chr$ -- 0
-int.to.str$ -- 16
-missing$ -- 16
-newline$ -- 83
-num.names$ -- 32
-pop$ -- 138
+int.to.str$ -- 17
+missing$ -- 17
+newline$ -- 88
+num.names$ -- 34
+pop$ -- 149
 preamble$ -- 1
-purify$ -- 99
+purify$ -- 106
 quote$ -- 0
-skip$ -- 221
+skip$ -- 239
 stack$ -- 0
-substring$ -- 478
-swap$ -- 113
-text.length$ -- 10
+substring$ -- 515
+swap$ -- 124
+text.length$ -- 11
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 64
+type$ -- 68
 warning$ -- 1
-while$ -- 69
-width$ -- 18
-write$ -- 186
+while$ -- 74
+width$ -- 19
+write$ -- 198
 (There was 1 warning)

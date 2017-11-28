@@ -62,6 +62,12 @@ INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/graphics/color.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/graphics/color.sty
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/graphics-cfg/color.cfg
 INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/graphics-cfg/color.cfg
+INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/subfig/subfig.sty
+INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/subfig/subfig.sty
+INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/caption/caption.sty
+INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/caption/caption.sty
+INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/caption/caption3.sty
+INPUT /usr/local/texlive/2016/texmf-dist/tex/latex/caption/caption3.sty
 INPUT report.aux
 INPUT report.aux
 OUTPUT report.aux
@@ -91,6 +97,8 @@ INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/latex-fonts/lasy5.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cm/cmtt9.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cm/cmti9.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cm/cmbx9.tfm
+INPUT figures/network_instance.pdf
+INPUT figures/network_schema.pdf
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cm/cmbx6.tfm
 INPUT /usr/local/texlive/2016/texmf-dist/fonts/tfm/public/cm/cmbx5.tfm
 INPUT report.bbl

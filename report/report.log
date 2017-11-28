@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2017.1.19)  27 NOV 2017 19:49
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2017.1.19)  28 NOV 2017 16:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -183,73 +183,144 @@ File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package color Info: Driver file: xetex.def on input line 144.
 )
-\c@definition=\count108
-\c@example=\count109
+(/usr/local/texlive/2016/texmf-dist/tex/latex/subfig/subfig.sty
+Package: subfig 2005/06/28 ver: 1.3 subfig package
 
-(./report.aux)
+
+Package subfig Warning: Your document class has a bad definition
+ of \endfigure, most likely
+ \let\endfigure=\end@float
+ which has now been changed to
+ \def\endfigure{\end@float}
+ because otherwise subsequent changes to \end@float
+ (like done by several packages changing float behaviour)
+ can't take effect on \endfigure.
+ Please complain to your document class author.
+
+
+Package subfig Warning: Your document class has a bad definition
+ of \endtable, most likely
+ \let\endtable=\end@float
+ which has now been changed to
+ \def\endtable{\end@float}
+ because otherwise subsequent changes to \end@float
+ (like done by several packages changing float behaviour)
+ can't take effect on \endtable.
+ Please complain to your document class author.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2016/02/04 v1.7-139 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 67.
+\captionmargin=\dimen123
+\captionmargin@=\dimen124
+\captionwidth=\dimen125
+\caption@tempdima=\dimen126
+\caption@indent=\dimen127
+\caption@parindent=\dimen128
+\caption@hangindent=\dimen129
+\abovecaptionskip=\skip44
+\belowcaptionskip=\skip45
+Package caption Info: Unknown document class (or package),
+(caption)             standard defaults will be used.
+)
+
+Package caption Warning: Unsupported document class (or package) detected,
+(caption)                usage of the caption package is not recommended.
+See the caption package documentation for explanation.
+
+Package caption Info: \@makecaption = \long macro:#1#2-> \vskip \baselineskip \
+setbox \@tempboxa \hbox {\textbf {#1: #2}} \ifdim \wd \@tempboxa >\hsize \textb
+f {#1: #2}\par \else \hbox to\hsize {\hfil \box \@tempboxa \hfil }\par \fi .
+\c@ContinuedFloat=\count108
+)
+\c@KVtest=\count109
+\sf@farskip=\skip46
+\sf@captopadj=\dimen130
+\sf@capskip=\skip47
+\sf@nearskip=\skip48
+\c@subfigure=\count110
+\c@subfigure@save=\count111
+\c@lofdepth=\count112
+\c@subtable=\count113
+\c@subtable@save=\count114
+\c@lotdepth=\count115
+\sf@top=\skip49
+\sf@bottom=\skip50
+)
+\c@definition=\count116
+\c@example=\count117
+ (./report.aux)
 \openout1 = `report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Try loading font information for U+msa on input line 72.
- (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsa.fd
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 44.
+LaTeX Font Info:    ... okay on input line 44.
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: subfig package v1.3 is loaded.
+Package caption Info: End \AtBeginDocument code.
+LaTeX Font Info:    Try loading font information for U+msa on input line 74.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 72.
+LaTeX Font Info:    Try loading font information for U+msb on input line 74.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+lasy on input line 72.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 74.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-Overfull \hbox (3.8212pt too wide) in paragraph at lines 96--97
+Overfull \hbox (3.8212pt too wide) in paragraph at lines 98--99
 \OT1/cmr/m/n/9 Recently, re-searchers use het-ero-ge-neous in-for-ma-tion net-w
 orks
  []
 
 
-Overfull \hbox (7.91406pt too wide) in paragraph at lines 96--97
+Overfull \hbox (7.91406pt too wide) in paragraph at lines 98--99
 \OT1/cmr/m/n/9 ter-act-ing com-po-nents. For in-stance, in bib-li-o-graphic dat
 abase,
  []
 
 
-Overfull \hbox (3.56223pt too wide) in paragraph at lines 96--97
+Overfull \hbox (3.56223pt too wide) in paragraph at lines 98--99
 \OT1/cmr/m/n/9 Com-pared to widely-used ho-mo-ge-neous in-for-ma-tion net-works
 
  []
 
-
-Underfull \vbox (badness 3536) has occurred while \output is active []
-
- [1
+[1
 
 
 ]
-Overfull \hbox (3.07726pt too wide) in paragraph at lines 145--146
+Overfull \hbox (3.07726pt too wide) in paragraph at lines 147--148
 []\OT1/cmr/bx/n/9 Heterogeneous/homogeneous in-for-ma-
  []
 
-
-Overfull \hbox (2.86183pt too wide) in paragraph at lines 171--172
-[]\OT1/cmr/m/n/9 Example and fig-ure about HIN, schema, meta-
+File: figures/network_instance.pdf Graphic file (type QTm)
+<use  "figures/network_instance.pdf" >
+File: figures/network_schema.pdf Graphic file (type QTm)
+ <use  "figures/network_schema.pdf" >
+Overfull \hbox (22.88985pt too wide) in paragraph at lines 186--187
+\OT1/cmr/m/n/9 i.e., "Author-Paper-Venue" path and $(\OML/cmm/m/it/9 A; P; V; P
+; A\OT1/cmr/m/n/9 )$, i.e., "Author-
  []
 
 [2]
-Overfull \hbox (17.34608pt too wide) in paragraph at lines 198--199
+Overfull \hbox (17.34608pt too wide) in paragraph at lines 229--230
 \OT1/cmr/m/n/9 de-cided by the prox-im-ity of $\OMS/cmsy/m/n/9 f\OML/cmm/m/it/9
  M[]\OT1/cmr/m/n/9 (\OML/cmm/m/it/9 u; w\OT1/cmr/m/n/9 )\OMS/cmsy/m/n/9 g[]$ \O
 T1/cmr/m/n/9 and $\OMS/cmsy/m/n/9 f\OML/cmm/m/it/9 M[]\OT1/cmr/m/n/9 (\OML/cmm/
@@ -257,34 +328,37 @@ m/it/9 v; w\OT1/cmr/m/n/9 )\OMS/cmsy/m/n/9 g[]$\OT1/cmr/m/n/9 .
  []
 
 
-Overfull \hbox (2.1134pt too wide) in paragraph at lines 201--202
+Overfull \hbox (2.1134pt too wide) in paragraph at lines 232--233
 \OT1/cmr/m/n/9 sim-i-lar-ity is con-sis-tent good for gen-eral use. Thus, we pr
 esent
  []
 
 
-Overfull \hbox (6.13794pt too wide) in paragraph at lines 211--212
+Overfull \hbox (6.13794pt too wide) in paragraph at lines 242--243
 \OT1/cmr/m/n/9 ap-pli-ca-tions, such as rec-om-men-da-tion sys-tem [1] and medi
 cine
  []
 
 
-Overfull \hbox (43.42204pt too wide) in paragraph at lines 216--217
+Overfull \hbox (43.42204pt too wide) in paragraph at lines 247--248
 \OT1/cmr/m/n/9 where $\OMS/cmsy/m/n/9 P[] \OT1/cmr/m/n/9 = (\OML/cmm/m/it/9 A[]
 ; A[]; []  ; A[]; B\OT1/cmr/m/n/9 )$ and $\OMS/cmsy/m/n/9 P[] \OT1/cmr/m/n/9 = 
 (\OML/cmm/m/it/9 B; A[]; []  ; A[]\OT1/cmr/m/n/9 )$.
  []
 
-(./report.bbl [3]) [4
+[3]
+Overfull \hbox (3.87885pt too wide) in paragraph at lines 273--274
+\OT1/cmr/m/n/9 We im-ple-ment Path-Sim, Ws-Rel, Sign-Sim, Het-eSim in Python
+ []
 
-] (./report.aux) ) 
+(./report.bbl) [4] (./report.aux) ) 
 Here is how much of TeX's memory you used:
- 1883 strings out of 493591
- 22672 string characters out of 6143546
- 89567 words of memory out of 5000000
- 5279 multiletter control sequences out of 15000+600000
+ 3107 strings out of 493591
+ 44629 string characters out of 6143546
+ 119766 words of memory out of 5000000
+ 6488 multiletter control sequences out of 15000+600000
  19314 words of font info for 53 fonts, out of 8000000 for 9000
  1347 hyphenation exceptions out of 8191
- 41i,18n,28p,1048b,250s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 44i,18n,49p,1048b,365s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on report.pdf (4 pages).
