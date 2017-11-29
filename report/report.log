@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2017.1.19)  28 NOV 2017 16:09
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2017.1.19)  29 NOV 2017 21:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -335,7 +335,7 @@ esent
 
 
 Overfull \hbox (6.13794pt too wide) in paragraph at lines 242--243
-\OT1/cmr/m/n/9 ap-pli-ca-tions, such as rec-om-men-da-tion sys-tem [1] and medi
+\OT1/cmr/m/n/9 ap-pli-ca-tions, such as rec-om-men-da-tion sys-tem [3] and medi
 cine
  []
 
@@ -347,18 +347,60 @@ Overfull \hbox (43.42204pt too wide) in paragraph at lines 247--248
  []
 
 [3]
-Overfull \hbox (3.87885pt too wide) in paragraph at lines 273--274
-\OT1/cmr/m/n/9 We im-ple-ment Path-Sim, Ws-Rel, Sign-Sim, Het-eSim in Python
+Overfull \hbox (10.5pt too wide) in paragraph at lines 317--318
+[]\OT1/cmr/bx/n/9 Redundant Meta-path:User-Movie\OT1/cmr/m/n/9 . The re-dun-dan
+t meta-
  []
 
-(./report.bbl) [4] (./report.aux) ) 
+
+Underfull \hbox (badness 10000) in paragraph at lines 341--342
+
+ []
+
+[4]
+Missing character: There is no ﬁ in font cmr9!
+
+Underfull \hbox (badness 10000) in paragraph at lines 358--359
+
+ []
+
+Missing character: There is no ﬁ in font cmr9!
+
+Underfull \hbox (badness 10000) in paragraph at lines 364--366
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 373--374
+
+ []
+
+
+Overfull \hbox (10.5pt too wide) in paragraph at lines 385--386
+[]\OT1/cmr/bx/n/9 Redundant Meta-path:User-Movie\OT1/cmr/m/n/9 . The re-dun-dan
+t meta-
+ []
+
+[5]
+Overfull \hbox (6.39763pt too wide) in paragraph at lines 405--412
+ [][] 
+ []
+
+
+Overfull \hbox (6.39763pt too wide) in paragraph at lines 418--425
+ [][] 
+ []
+
+(./report.bbl [6]) [7
+
+] (./report.aux) ) 
 Here is how much of TeX's memory you used:
- 3107 strings out of 493591
- 44629 string characters out of 6143546
+ 3114 strings out of 493591
+ 44736 string characters out of 6143546
  119766 words of memory out of 5000000
- 6488 multiletter control sequences out of 15000+600000
+ 6495 multiletter control sequences out of 15000+600000
  19314 words of font info for 53 fonts, out of 8000000 for 9000
  1347 hyphenation exceptions out of 8191
  44i,18n,49p,1048b,365s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on report.pdf (4 pages).
+Output written on report.pdf (7 pages).

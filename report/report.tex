@@ -366,7 +366,7 @@ where $\mu_{u}$ is the mean of the rating scores of user $u$, $\sigma_{u}$ is th
 
 \subsection{Metrics}
 
-To evaluate these four approaches of similarity calculation, we randomly chose her 50\% rating records and the remaining are testing data. And then we use the 50\% rating records and the whole data on other-type objects to construct the heterogeneous information network. Given a user, we firstly use her rated movies in the remaining data as the candidate movies, and then according to different similarity calculation methods, we generate a list of $K$ movies named $R_{u}$, which are top-$K$ movies among all the candidate movies. If the movie in $R_{u}$ is also in the top-$K$ rated movies in the candidate movies. We call it a hit. Since here the recall is the same as the precision, we here only use standard precesion as the metric to evaluate the results.
+To evaluate these four approaches of similarity calculation, we randomly chose her 50\% rating records and the remaining are testing data. And then we use the 50\% rating records and the whole data on other-type objects to construct the heterogeneous information network. Given a user, we firstly use her rated movies in the remaining data as the candidate movies, and then according to different similarity calculation methods, we generate a list of $K$ movies named $R_{u}$, which are top-$K$ movies among all the candidate movies. If the movie in $R_{u}$ is also in the top-$K$ rated movies in the candidate movies. We call it a hit. Since here the recall is the same as the precision, we here only use standard precision as the metric to evaluate the results.
 
 \subsection{New-version SignSim(NSignSim)}
 
@@ -396,8 +396,37 @@ where $D_{+}(u_{i}|UM)$ is the neighbor set of node $u_{i}$ based on positive ed
 
 \subsection{Experiment Results}
 
+We evaluate the efficience and effectiveness of HeteSim, WsRel, ExPathSim, NSignSim. We set $K = 10$. We run experiments on 10 users selected randomly under different meta-paths, then use the average running time and average precision rate to express the efficiency and effectiveness under this experiment set. Table \ref{tab:precision} shows the precision rates of these 4 methods. From Table \ref{tab:precision}, we can find that NSignSim has best performance on this experiment. Table \ref{tab:efficiency} contains the detail of these 4 methods' average running time, and result shows ExPathSim is the slowest method. WsRel and HeteSim have good efficiency according to this experiment.
+
+\begin{table}
+\centering
+\caption{Precision Rates of Four Methods under Different Meta-paths} 
+\label{tab:precision}
+\begin{tabular}{|r|c|c|c|c|} \hline
+Meta-path & ExPathSim & WsRel & NSignSim & HeteSim \\ \hline
+$U,M,D,M$ & 0.4200 & 0.3600 & 0.4200 & 0.3200 \\ \hline
+$U,M,A,M$ & 0.2500 & 0.2200 & 0.2500 & 0.2000 \\ \hline
+$U,M,G,M$ & 0.3200 & 0.3600 & 0.3800 & 0.3400 \\ \hline
+$U,M,U,M$ &  & 0.2400 & 0.3400 &  \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}
+\centering
+\caption{Average Running Time (in minutes) of Four Methods under Different Meta-paths} 
+\label{tab:efficiency}
+\begin{tabular}{|r|c|c|c|c|} \hline
+Meta-path & ExPathSim & WsRel & NSignSim & HeteSim \\ \hline
+$U,M,D,M$ & 0.0473 & 0.0010 & 0.1254 & 0.0037 \\ \hline
+$U,M,A,M$ & 0.3615 & 0.0051 & 0.2079 & 0.0224 \\ \hline
+$U,M,G,M$ & 22.2447 & 0.0017 & 0.1513 & 0.0729 \\ \hline
+$U,M,U,M$ &  & 0.1915 & 26.8311 &  \\ \hline
+\end{tabular}
+\end{table}
+
 \section{Conclusion}
 
+In this survey, we introduce the basic definition about heterogeneous information network. Then, we provide detailed introduction about similarity measures on heterogeneous information network related to meta-path. Based on the similarity methods' properties and suitable ranges, we implemented four of these and run basic effectiveness and efficiency evaluation. But, our work still has some limitation: some meta-structure based similarity methods \cite{huang2016meta} are not included; due to the limit of  dataset and time, we have not conducted other experiments on these methods, such as clustering and classification.
 % Typically, the body of a paper is organized
 % into a hierarchical structure, with numbered or unnumbered
 % headings for sections, subsections, sub-subsections, and even

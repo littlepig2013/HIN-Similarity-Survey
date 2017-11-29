@@ -1,5 +1,18 @@
 \begin{thebibliography}{10}
 
+\bibitem{cantador2011second}
+I.~Cantador, P.~L. Brusilovsky, and T.~Kuflik.
+\newblock Second workshop on information heterogeneity and fusion in
+  recommender systems (hetrec2011).
+\newblock 2011.
+
+\bibitem{huang2016meta}
+Z.~Huang, Y.~Zheng, R.~Cheng, Y.~Sun, N.~Mamoulis, and X.~Li.
+\newblock Meta structure: Computing relevance in large heterogeneous
+  information networks.
+\newblock In {\em Proceedings of the 22nd ACM SIGKDD International Conference
+  on Knowledge Discovery and Data Mining}, pages 1595--1604. ACM, 2016.
+
 \bibitem{jamali2013heteromf}
 M.~Jamali and L.~Lakshmanan.
 \newblock Heteromf: recommendation in heterogeneous information networks using
@@ -104,6 +117,13 @@ C.~Wang, Y.~Sun, Y.~Song, J.~Han, Y.~Song, L.~Wang, and M.~Zhang.
   information networks.
 \newblock In {\em Proceedings of the 2016 SIAM International Conference on Data
   Mining}, pages 621--629. SIAM, 2016.
+
+\bibitem{zhu2015relevance}
+M.~Zhu, T.~Zhu, Z.~Peng, G.~Yang, Y.~Xu, S.~Wang, X.~Wang, and X.~Hong.
+\newblock Relevance search on signed heterogeneous information network based on
+  meta-path factorization.
+\newblock In {\em International Conference on Web-Age Information Management},
+  pages 181--192. Springer, 2015.
 
 \bibitem{zhu2017measuring}
 T.~Zhu, Z.~Peng, S.~Wang, S.~Y. Philip, and X.~Hong.

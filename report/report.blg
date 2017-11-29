@@ -3,46 +3,47 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: report.aux
 The style file: abbrv.bst
 Database file #1: report.bib
+Warning--empty journal in cantador2011second
 Warning--empty journal in wang2017distant
-You've used 17 entries,
+You've used 20 entries,
             2118 wiz_defined-function locations,
-            595 strings with 7568 characters,
-and the built_in function-call counts, 8055 in all, are:
-= -- 821
-> -- 411
-< -- 11
-+ -- 162
-- -- 144
-* -- 569
-:= -- 1245
-add.period$ -- 62
-call.type$ -- 17
-change.case$ -- 123
+            610 strings with 8356 characters,
+and the built_in function-call counts, 9603 in all, are:
+= -- 974
+> -- 505
+< -- 13
++ -- 199
+- -- 178
+* -- 680
+:= -- 1486
+add.period$ -- 73
+call.type$ -- 20
+change.case$ -- 149
 chr.to.int$ -- 0
-cite$ -- 18
-duplicate$ -- 316
-empty$ -- 589
-format.name$ -- 144
-if$ -- 1762
+cite$ -- 22
+duplicate$ -- 374
+empty$ -- 691
+format.name$ -- 178
+if$ -- 2096
 int.to.chr$ -- 0
-int.to.str$ -- 17
-missing$ -- 17
-newline$ -- 88
-num.names$ -- 34
-pop$ -- 149
+int.to.str$ -- 20
+missing$ -- 20
+newline$ -- 103
+num.names$ -- 40
+pop$ -- 183
 preamble$ -- 1
-purify$ -- 106
+purify$ -- 129
 quote$ -- 0
-skip$ -- 239
+skip$ -- 285
 stack$ -- 0
-substring$ -- 515
-swap$ -- 124
-text.length$ -- 11
+substring$ -- 602
+swap$ -- 148
+text.length$ -- 13
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 68
-warning$ -- 1
-while$ -- 74
-width$ -- 19
-write$ -- 198
-(There was 1 warning)
+type$ -- 80
+warning$ -- 2
+while$ -- 86
+width$ -- 22
+write$ -- 231
+(There were 2 warnings)
