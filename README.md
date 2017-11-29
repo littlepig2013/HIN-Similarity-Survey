@@ -66,3 +66,11 @@
 		* Values:
 			* Type: the index of a relation in HIN['Relations']
 
+## To Run the Code
+
+* Dataset source is refered in the report.
+* `python3 split.py` is used to produce the train and test data based on the dataset.
+* `python3 HIN.py` is used to load the graph and store the graph into pickle file for further use.
+* `python3 test.py` is used to re-produde the results shown in our report.
+
+
