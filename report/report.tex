@@ -362,7 +362,7 @@ The standard score $z_{u}$ of user $u$'s raw score $r_{u}$ can be calculated by
 \begin{equation}
 z_{u} = \dfrac{r_{u} - \mu_{u}}{\sigma_{u}}
 \end{equation}
-where $\mu_{u}$ is the mean of the rating scores of user $u$, $\sigma_{u}$ is the standard deviation of the rating scores of user $u$. After applying the normalization, the weighted signed heterogeneous information network can be constructed on this dataset, which contains five types of objects: user, movie, dirctor, genre and actor.\\
+where $\mu_{u}$ is the mean of the rating scores of user $u$, $\sigma_{u}$ is the standard deviation of the rating scores of user $u$. After applying the normalization, the weighted signed heterogeneous information network can be constructed on this dataset, which contains five types of objects: user, movie($U$), dirctor($D$), genre($G$) and actor($A$).\\
 
 \subsection{Metrics}
 
@@ -407,7 +407,7 @@ Meta-path & ExPathSim & WsRel & NSignSim & HeteSim \\ \hline
 $U,M,D,M$ & 0.4200 & 0.3600 & 0.4200 & 0.3200 \\ \hline
 $U,M,A,M$ & 0.2500 & 0.2200 & 0.2500 & 0.2000 \\ \hline
 $U,M,G,M$ & 0.3200 & 0.3600 & 0.3800 & 0.3400 \\ \hline
-$U,M,U,M$ &  & 0.2400 & 0.3400 &  \\ \hline
+% $U,M,U,M$ &  & 0.2400 & 0.3400 &  \\ \hline
 \end{tabular}
 \end{table}
 
@@ -420,7 +420,7 @@ Meta-path & ExPathSim & WsRel & NSignSim & HeteSim \\ \hline
 $U,M,D,M$ & 0.0473 & 0.0010 & 0.1254 & 0.0037 \\ \hline
 $U,M,A,M$ & 0.3615 & 0.0051 & 0.2079 & 0.0224 \\ \hline
 $U,M,G,M$ & 22.2447 & 0.0017 & 0.1513 & 0.0729 \\ \hline
-$U,M,U,M$ &  & 0.1915 & 26.8311 &  \\ \hline
+% $U,M,U,M$ &  & 0.1915 & 26.8311 &  \\ \hline
 \end{tabular}
 \end{table}
 

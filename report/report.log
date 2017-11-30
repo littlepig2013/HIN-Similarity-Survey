@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2017.1.19)  29 NOV 2017 21:47
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016) (preloaded format=xelatex 2017.1.19)  30 NOV 2017 16:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -365,6 +365,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 358--359
  []
 
 Missing character: There is no ﬁ in font cmr9!
+
+Overfull \hbox (13.51678pt too wide) in paragraph at lines 364--366
+\OT1/cmr/m/n/9 which con-tains five types of ob-jects: user, movie($\OML/cmm/m/
+it/9 U$\OT1/cmr/m/n/9 ), dirctor($\OML/cmm/m/it/9 D$\OT1/cmr/m/n/9 ),
+ []
+
 
 Underfull \hbox (badness 10000) in paragraph at lines 364--366
 
